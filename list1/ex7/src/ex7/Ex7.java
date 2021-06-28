@@ -65,3 +65,4 @@ public class Ex7 {
         JOptionPane.showMessageDialog(null, text, "Final Grades", INFORMATION_MESSAGE);
     }
 }
+

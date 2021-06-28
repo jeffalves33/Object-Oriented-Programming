@@ -8,7 +8,7 @@ import static javax.swing.JOptionPane.INFORMATION_MESSAGE;
  *
  * @author Jeferson Alves (@jeffalves33)
  */
-public class EX13 {
+public class Ex13 {
     public static void main(String[] args) {
         Scanner entry = new Scanner(System.in);
         System.out.println(":::::Print Squares:::::");
@@ -41,3 +41,4 @@ public class EX13 {
     }
     
 }
+

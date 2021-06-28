@@ -11,7 +11,7 @@ public class Ex10 {
     static float sum(float a, float b){
         return a + b;
     }
-    /static float subtration(float a, float b){
+    static float subtration(float a, float b){
         return Math.abs(a - b);
     }
     static float division(float a, float b){
