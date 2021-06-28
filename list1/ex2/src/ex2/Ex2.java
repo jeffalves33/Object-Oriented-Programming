@@ -1,41 +1,48 @@
 package ex2;
 
-import javax.swing.JOptionPane;
-import static javax.swing.JOptionPane.INFORMATION_MESSAGE;
-import static javax.swing.JOptionPane.QUESTION_MESSAGE;
+import java.util.Scanner;
 
 
 public class Ex2 {
+    /**
+    * @author Jeferson Alves (@jeffalves33)
+    */
 
-    public static void GeraFibonacci (int num){
-        String Serie="0";
-        int anterior=0;
-        int atual=1;
-        int i=0;
+    static void checkTriangle(float a, float b, float c){
+        float ab,ac,bc;
+        ab = Math.abs(a-b);
+        ac = Math.abs(a-c);
+        bc = Math.abs(b-c);
         
-        while (i<(num-1)){
-            Serie = Serie + " "+ String.valueOf(atual);
-            atual = atual + anterior;
-            anterior = atual - anterior;
-            i++;
+         //casework
+        if((ab < c && c < (a + b)) || (ac < b && b < (a + c)) || (bc < a && a < (b + c))){
+            System.out.println("IS triangle!!!");
+            //check if it is equilateral, isosceles or scalene
+            //equilateral
+            if(a == b && b == c) System.out.println("equilateral.");
+            //isosceles
+            if(a == b || a == c || b == c) System.out.println("isosceles.");
+            //scalene
+            if(a != b && a != c && b != c) System.out.println("scalene.");
         }
-        System.out.println("Serie Fibonacci com "+num+" termos");
-        
-        JOptionPane.showMessageDialog(null, Serie, "Serie Fibonacci com "+num+" termos:",
-                INFORMATION_MESSAGE);
-                //ERROR_MESSAGE
-                //WARNING_MESSAGE
-                //QUESTION_MESSAGE
-        
+        else System.out.println("NOT is triangle!!!");
     }
     
     
     public static void main(String[] args) {
-        Integer [] opcoes = {6, 8, 12, 15, 24, 36, 48};
-        int n;
-        n = (Integer) JOptionPane.showInputDialog(null, "Selecione a quantidade de Termos",
-                "Fibonacci", QUESTION_MESSAGE, null, opcoes, opcoes[0]);
-        GeraFibonacci(n);
+        Scanner entry = new Scanner(System.in);
+        float a,b,c;
+
+        System.out.println(":::::check if it's triangle:::::");
+
+        System.out.print("\nenter the first value: ");
+        a = entry.nextFloat();
+        System.out.print("enter the second value: ");
+        b = entry.nextFloat();
+        System.out.print("enter the third value: ");
+        c = entry.nextFloat();
+
+        checkTriangle(a,b,c);
     }
     
 }
