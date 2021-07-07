@@ -1,0 +1,3 @@
+Desenvolver em Java um método que simule jogos da mega sena com seis dezenas de 1 a 60 em cada aposta. O programa deverá usar esse método após solicitar ao usuário quantas apostas deseja realizar. Ficar atento para que caso sejam sorteadas dezenas repetidas deve-se refazer os sorteios de novas dezenas até que as seis dezenas sejam diferentes dentro de cada aposta.  Guardar em um vetor a última aposta produzida e em uma matriz todas as apostas solicitadas pelos usuário. Imprimir as apostas.
+Dicas: Utilizar os comandos Random gerador = new Random(); gerador.nextInt(61);  em um método para gerar em um vetor as seis dezenas.
+

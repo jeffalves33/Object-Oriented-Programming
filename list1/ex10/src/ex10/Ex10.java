@@ -74,7 +74,7 @@ public class Ex10 {
                     System.exit(0);
                     break;
             }
-        }while(answer != 2);
+        }while(answer != 5);
     }
     
 }
