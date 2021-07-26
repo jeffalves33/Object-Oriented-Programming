@@ -1,0 +1,9 @@
+Crie uma classe em Java para representar um valor em Reais (moeda brasileira). Escreva um programa Java, instancie um objeto da classe Moeda e invoque alguns de seus
+métodos. O maior valor permitido e R$ 1.000, 00 e o menor é R$ -1.000, 00. Escreva um programa Java, instancie um objeto da classe Moeda e invoque alguns de seus métodos. 
+A classe devera prover os seguintes métodos:
+• Construtor padrão;
+• Construtor para iniciar todos os atributos da classe;
+• imprimir - Deverá imprimir o valor no dispositivo de saída padrão. Ex: R$ 123,45;
+• imprimirPorExtenso - Deverá imprimir o valor por extenso. Ex: Cento e vinte e três reais e quarenta e cinco centavos;
+• obterValor - retorna o valor armazenado;
+• denirValor - recebe um valor com parâmetro e armazena na classe.
