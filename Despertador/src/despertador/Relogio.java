@@ -42,7 +42,7 @@ public class Relogio {
     public int atualizaHorario(int hour, int minutes, int seconds){
         if(this.seconds == 59){
             if(this.minutes == 59){
-                if(this.hour == 24){
+                if(this.hour == 23){
                     this.hour = 0;
                     hour = 0;
                 }else{
