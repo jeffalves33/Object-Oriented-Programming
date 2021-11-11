@@ -1,6 +1,10 @@
 
 package calculator;
 
+import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
 /**
  *
  * @author Jeferson Alves (@jeffalves33)
@@ -48,6 +52,12 @@ public class Formulario extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
+        txtResult.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtResultActionPerformed(evt);
+            }
+        });
 
         jButton1.setText("7");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -255,7 +265,6 @@ public class Formulario extends javax.swing.JFrame {
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(txtResult, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -275,14 +284,6 @@ public class Formulario extends javax.swing.JFrame {
                             .addComponent(jButton10, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jButton17, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                            .addGap(124, 124, 124)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                .addComponent(jButton18, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(jButton14, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGroup(layout.createSequentialGroup()
-                            .addGap(124, 124, 124)
-                            .addComponent(jButton12, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGroup(layout.createSequentialGroup()
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                 .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -290,7 +291,14 @@ public class Formulario extends javax.swing.JFrame {
                             .addGap(68, 68, 68)
                             .addComponent(jButton11, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jButton13, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addComponent(jButton13, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(layout.createSequentialGroup()
+                            .addGap(124, 124, 124)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(jButton18, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jButton14, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(jButton12, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                 .addContainerGap(49, Short.MAX_VALUE))
         );
 
@@ -300,10 +308,36 @@ public class Formulario extends javax.swing.JFrame {
     private void jButton12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton12ActionPerformed
         value2 = Double.parseDouble(txtResult.getText());
         
-        if(signal == "sum") txtResult.setText(String.valueOf(value1 + value2));
-        if(signal == "subtraction") txtResult.setText(String.valueOf(value1 - value2));
-        if(signal == "multiplication") txtResult.setText(String.valueOf(value1 * value2));
-        if(signal == "division") txtResult.setText(String.valueOf(value1 / value2));
+        if(signal == "sum"){
+            try{
+                if(value1 != null && value2 != null)txtResult.setText(String.valueOf(value1 + value2));
+                else throw new Exception("Error 101");
+                
+            } catch (Exception ex) {txtResult.setText("No number!");}
+            
+            
+        }
+        if(signal == "subtraction"){
+            try{
+                if(value1 != null && value2 != null)txtResult.setText(String.valueOf(value1 - value2));
+                else throw new Exception("Error 101");
+                
+            } catch (Exception ex) {txtResult.setText("No number!");}
+        }
+        if(signal == "multiplication"){
+            try{
+                if(value1 != null && value2 != null)txtResult.setText(String.valueOf(value1 * value2));
+                else throw new Exception("Error 101");
+                
+            } catch (Exception ex) {txtResult.setText("No number!");}
+        }
+        if(signal == "division"){
+            try{
+                if(value1 != null && value2 != null && value2 != 0)txtResult.setText(String.valueOf(value1 / value2));
+                throw new Exception("Error 101");
+                
+            } catch (Exception ex) {txtResult.setText("Tipo de erro de Divizão por Zero: " +ex.getMessage());}
+        }
     }//GEN-LAST:event_jButton12ActionPerformed
 
     private void jButton14ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton14ActionPerformed
@@ -385,6 +419,10 @@ public class Formulario extends javax.swing.JFrame {
         value2 = null;
         txtResult.setText("");
     }//GEN-LAST:event_jButton7ActionPerformed
+
+    private void txtResultActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtResultActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtResultActionPerformed
 
     /**
      * @param args the command line arguments
